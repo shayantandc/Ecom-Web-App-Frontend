@@ -1,0 +1,53 @@
+
+      <div class="col-2">
+
+          <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+              <img src="https://th.bing.com/th/id/R.3f22a354279d20c6bf0456e69118dea4?rik=P%2b9LXvSpXxz7Rw&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fyck%2fg5d%2fyckg5dbdi.png&ehk=5D6JFrOlHSVv6b7aUeVFmt4aZdCsyhjs1%2fzQOhq1tRg%3d&risl=&pid=ImgRaw&r=0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;" class="img-fluid" alt="Laptop" />
+
+          </div>
+      </div>
+
+      <div class="col-5 ms-3">
+          <h4>{{item.productName}}</h4>
+          <h6>{{item.productType}}</h6>
+          <h6>Category: {{item.catName}}</h6>
+          <h6>{{item.productDescription}}</h6>
+          <input type="number" placeholder="Enter Quantity" min="1" (change)="quanchange()" [(ngModel)]="quantity">
+          <h2>₹ {{price}}</h2>
+
+
+      </div>
+
+      <div class="col-4">
+          <div class="rounded-bottom">
+              <div class="card-body ">
+                  <p class="mb-4 ">Your payment details</p>
+
+                  <form [formGroup]="myForm" (submit)="placeOrder()">
+                      <div class="form-outline mb-3 ">
+                          <input type="text" id="formControlLgXM8 " class="form-control" formControlName="cardNumber" placeholder="1234 5678 1234 5678 " />
+                          <label class="form-label " for="formControlLgXM8 ">Card Number</label>
+                      </div>
+
+                      <div class="row mb-3 ">
+                          <div class="col-6 ">
+                              <div class="form-outline ">
+                                  <input type="date" id="formControlLgExpk8 " formControlName="cardExpire" class="form-control " placeholder="MM/YYYY " />
+                                  <label class="form-label " for="formControlLgExpk8 ">Expire</label>
+                              </div>
+                          </div>
+                          <div class="col-6 ">
+                              <div class="form-outline ">
+                                  <input type="password" id="formControlLgcvv8 " formControlName="cardcvv" class="form-control " placeholder="Cvv " />
+                                  <label class="form-label " for="formControlLgcvv8 ">Cvv</label>
+                              </div>
+                          </div>
+                      </div>
+
+                      <button type="submit" class="btn btn-info btn-block ">Place Order</button>
+                  </form>
+              </div>
+          </div>
+
+      </div>
+  

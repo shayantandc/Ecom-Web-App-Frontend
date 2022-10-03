@@ -1,0 +1,70 @@
+<div _ngcontent-gyl-c16="" class="d-flex align-items-center flex-column" style="padding-top: 4em; padding-bottom:4em;">
+  <h1 _ngcontent-gyl-c16="" class="fw-normal" style="font-family:cursive"> With an outstanding style, only for you</h1>
+  <h1 _ngcontent-gyl-c16="" class="fs-4 fs-lg-8 fs-md-6 fw-bold" style="font-family:cursive">Exclusively designed shop for you</h1>
+  <div class="container">
+    <div class="row">
+        <div class="d-flex flex-row-reverse bd-highlight">
+            <div class="p-2 bd-highlight">
+                <form [formGroup]="myCatForm">
+                    <div class="col">
+                        <label>Select Category</label>
+                        <select class="btn btn-secondary dropdown-toggle" aria-placeholder="Enter Category" (change)="filter()" formControlName="mySelect">
+                            <option   *ngFor="let opt of categories"  [value]="opt.categoryId">{{opt.categoryName}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-12 col-md-3 mt-2 mb-2" *ngFor="let item of list let index = index; trackBy:trackByIndex">
+            <div class="card test" style="border-radius: 15px;">
+                <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                    <img src="https://th.bing.com/th/id/R.3f22a354279d20c6bf0456e69118dea4?rik=P%2b9LXvSpXxz7Rw&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fyck%2fg5d%2fyckg5dbdi.png&ehk=5D6JFrOlHSVv6b7aUeVFmt4aZdCsyhjs1%2fzQOhq1tRg%3d&risl=&pid=ImgRaw&r=0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;" class="img-fluid" alt="Laptop" />
+                    <a href="#!">
+                        <div class="mask"></div>
+                    </a>
+                </div>
+                <div class="card-body pb-0">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <p><a href="#!" class="text-dark">{{item.productName}}</a></p>
+                            <p class="small text-muted">{{item.catName}}</p>
+                        </div>
+                        <div>
+                            <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="small text-muted">Rated 4.0/5</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-0" />
+                <div class="card-body pb-0">
+                    <div class="d-flex justify-content-between">
+                        <p><a href="#!" class="text-dark">Rs {{item.productPrice}}</a></p>
+                        <!-- <p class="text-dark">#### 8787</p> -->
+                    </div>
+                    <p class="small text-muted">{{item.productDescription}}</p>
+                </div>
+                <hr class="my-0" />
+
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+                        <button type="button" class="btn btn-primary invisible">+ Cart</button>
+
+                        <button type="button" (click)="buy(index)" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+

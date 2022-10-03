@@ -1,0 +1,58 @@
+<form [formGroup]="myForm" (submit)="validateForm()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Category Name</label>
+      <input type="text" class="form-control" id="catid" aria-describedby="emailHelp" placeholder="Enter category name" formControlName="catname">
+    </div >
+    <div style="padding-bottom: 2em;">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+  <div class="container mt-2">
+    <table class="table table-striped">
+        
+        <div>
+
+            <table class="table table-striped">
+        
+              <thead class="thead-dark">
+        
+                <tr>
+        
+                  <th scope="col">S.No.</th>
+        
+                  <th scope="col">Category Name</th>
+        
+                </tr>
+        
+              </thead>
+        
+              <tbody
+        
+                *ngFor="
+        
+                  let item of categories;
+        
+                  let index = index;
+        
+                  trackBy: trackByIndex
+        
+                "
+        
+              >
+        
+                <tr>
+        
+                  <th scope="row">{{ index + 1 }}</th>
+        
+                  <td>{{ item.categoryName }}</td>
+        
+                </tr>
+        
+              </tbody>
+        
+            </table>
+        
+          </div>
+        
+        

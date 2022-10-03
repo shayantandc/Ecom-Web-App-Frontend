@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="home"><h2 class="text-warning">ShopArena</h2></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mob-navbar" aria-label="Toggle">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mob-navbar">
+            <ul class="navbar-nav mb-2 mb-lg-0 mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="product">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'d-none': role==='User' || login === false}" routerLink="AddProduct">Add Product</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'d-none': role==='User' || login === false}" routerLink="AddCategory">Add Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'d-none': role==='Admin' || login === false}" routerLink="myorders">View My Orders</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <div style="padding-right: 10px;">
+                <button class="btn btn-warning" [ngClass]="{'d-none': login===true}" routerLink="login">Login</button>
+                </div>
+                <div style="padding-right: 10px;">
+                <button class="btn btn-warning" [ngClass]="{'d-none': login===true}" routerLink="register">Register</button>
+            </div>
+            <button class="btn btn-warning" [ngClass]="{'d-none': login===false}" routerLink="register" (click)="logout()">Logout</button>
+
+
+            </form>
+        </div>
+    </div>
+</nav>
