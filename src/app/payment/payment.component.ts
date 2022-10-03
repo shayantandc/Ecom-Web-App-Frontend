@@ -59,8 +59,8 @@ export class PaymentComponent implements OnInit {
           orderId : 700,
           customerId : this.user.customerId,
           paymentMode:"card",
-          cardNumber : "222222222222222222222",
-          cardCvv :432,
+          cardNumber : this.myForm.value.cardNumber,
+          cardCvv :this.myForm.value.cardcvv,
           cardExpiry:"2022-09-29T19:59:02.921Z",
           cardName:"MasterVisa"
         }

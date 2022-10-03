@@ -15,9 +15,10 @@ export class AddProductComponent implements OnInit {
   formSubmited=false;
   added=false;
   amount=500;
+  categories:any;
   prods:any;
   myForm: FormGroup = this.formbuilder.group({
-    id: ["", [Validators.required]],
+    mySelect: [, [Validators.required]],
     name: ["", [Validators.required]],
     type: ["", [Validators.required]],
     price: ["", [Validators.required]],
@@ -27,6 +28,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProds()
+    this.getAllCategory()
     
   }
 
@@ -38,6 +40,14 @@ export class AddProductComponent implements OnInit {
       console.log(this.prods)
     })
   }
+  getAllCategory()
+  {
+    this.api.get("https://localhost:44309/api/ApiGateway/allcategories").subscribe(res=>{
+      this.categories=res;
+      console.log(this.categories)
+    })
+  }
+
 
   trackByIndex = (index:number):number =>{
     return index;
@@ -50,7 +60,7 @@ export class AddProductComponent implements OnInit {
     {
       
       let body ={
-        categoryId:this.myForm.value.id,
+        categoryId: parseInt(this.myForm.value.mySelect),
         productName:this.myForm.value.name,
         productType:this.myForm.value.type,
         productPrice:this.myForm.value.price,
